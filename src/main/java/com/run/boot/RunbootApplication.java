@@ -3,7 +3,6 @@ package com.run.boot;
 import com.run.boot.config.StartCommandConfig;
 import com.run.boot.statics.GlobalStatusCode;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
 import javax.annotation.PostConstruct;
-import java.io.File;
-import java.io.FileInputStream;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class RunbootApplication implements CommandLineRunner {
@@ -55,7 +49,7 @@ public class RunbootApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         Map<String, List<String>> command = startCommandConfig.getCommand();
         LOGGER.info("SpringApplication run args.args={},allCommands={}", args, command);
         if (null == args || args.length < 1) {
@@ -76,10 +70,6 @@ public class RunbootApplication implements CommandLineRunner {
                 continue;
             }
             for (String useCommand : usefulCommand) {
-                if (useCommand.startsWith("#")) {
-                    LOGGER.warn("Check command ignored and not executed,useCommand={}", useCommand);
-                    continue;
-                }
                 RunBootCommand runBootCommand = runBootCommandMap.get(useCommand);
                 if (null == runBootCommand) {
                     LOGGER.error("Check command the object is not available. runBootCommand={}", runBootCommand);
