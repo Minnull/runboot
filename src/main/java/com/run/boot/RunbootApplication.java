@@ -39,13 +39,15 @@ public class RunbootApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
+        GlobalStatusCode.setCurrentState(GlobalStatusCode.SUCCESS);
         SpringApplication.run(RunbootApplication.class, args);
         LOGGER.info("SpringApplication run finished.");
         if (null == GlobalStatusCode.getCurrentState()) {
-            LOGGER.warn("RunbootApplication do not manually initialize the global status code.");
+            LOGGER.warn("RunbootApplication do not manually initialize the global status code,run failure.");
             GlobalStatusCode.setCurrentState(GlobalStatusCode.ERROR_EXIT);
         }
         System.exit(GlobalStatusCode.getCurrentState());
+        LOGGER.info("SpringApplication run success.");
     }
 
     @Override

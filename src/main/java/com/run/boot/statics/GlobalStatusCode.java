@@ -7,11 +7,7 @@ package com.run.boot.statics;
  */
 public class GlobalStatusCode {
 
-    private static final ThreadLocal<Integer> currentState = new ThreadLocal<>();
-
-    static {
-        currentState.set(GlobalStatusCode.SUCCESS);
-    }
+    private static ThreadLocal<Integer> currentState = new ThreadLocal<>();
 
     public static void setCurrentState(Integer state) {
         currentState.set(state);
