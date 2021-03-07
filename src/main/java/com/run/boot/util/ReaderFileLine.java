@@ -1,4 +1,4 @@
-package com.run.boot.util.common;
+package com.run.boot.util;
 
 import java.io.*;
 import java.util.ArrayList;

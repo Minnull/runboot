@@ -1,4 +1,4 @@
-package com.run.boot.util.common;
+package com.run.boot.util;
 
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;

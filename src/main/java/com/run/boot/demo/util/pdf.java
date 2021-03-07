@@ -1,4 +1,4 @@
-package com.run.boot.contents;
+package com.run.boot.demo.util;
 
 /**
  * @author : maweijie

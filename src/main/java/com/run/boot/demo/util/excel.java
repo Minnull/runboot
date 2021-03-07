@@ -1,6 +1,6 @@
-package com.run.boot.contents;
+package com.run.boot.demo.util;
 
-import com.run.boot.util.common.EasyExcelUtilTest;
+import com.run.boot.demo.util.EasyExcelUtilTest.EasyExcelUtil;
 
 /**
  * @author : maweijie
@@ -10,6 +10,6 @@ import com.run.boot.util.common.EasyExcelUtilTest;
 public class excel {
     public static void main(String[] args) {
         /*easyexcel*/
-        new EasyExcelUtilTest();
+        new EasyExcelUtil();
     }
 }

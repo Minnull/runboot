@@ -1,4 +1,4 @@
-package com.run.boot.util.common;
+package com.run.boot.util;
 
 
 import org.json.JSONException;

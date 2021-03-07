@@ -1,4 +1,4 @@
-package com.run.boot.util.common;
+package com.run.boot.util;
 
 import java.sql.Connection;
 import java.sql.SQLException;

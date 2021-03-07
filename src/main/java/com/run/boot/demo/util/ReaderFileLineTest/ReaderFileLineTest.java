@@ -1,6 +1,7 @@
-package com.run.boot.util.common;
+package com.run.boot.demo.util.ReaderFileLineTest;
 
 import com.run.boot.statics.GlobalDefaultPaths;
+import com.run.boot.util.ReaderFileLine;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

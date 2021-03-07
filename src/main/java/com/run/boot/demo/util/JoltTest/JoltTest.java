@@ -1,9 +1,8 @@
-package com.run.boot.util.common;
+package com.run.boot.demo.util.JoltTest;
 
 import com.bazaarvoice.jolt.Chainr;
 import com.bazaarvoice.jolt.JsonUtils;
 import com.run.boot.statics.GlobalDefaultPaths;
-import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -22,7 +21,6 @@ public class JoltTest {
 
     private static String inputPath = path + "input.json";
 
-    @Test
     public void TransformTest() throws FileNotFoundException {
         List chainrSpecJSON = JsonUtils.classpathToList(specPath);
         Chainr chainr = Chainr.fromSpec(chainrSpecJSON);

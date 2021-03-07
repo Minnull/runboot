@@ -1,10 +1,11 @@
-package com.run.boot.util.common;
+package com.run.boot.demo.util;
 
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.run.boot.util.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ArrayHandler;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
