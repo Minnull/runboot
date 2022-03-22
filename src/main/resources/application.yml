@@ -2,3 +2,12 @@ server:
   port: 8080
 logging:
   file: logs/runboot.log
+
+runboot:
+ commands:
+  first:
+   - run
+   - two
+  two:
+   - two
+   - run
