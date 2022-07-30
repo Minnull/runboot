@@ -1,7 +1,6 @@
 package com.run.boot.service.impl;
 
 import com.run.boot.service.AbstractBaseService;
-import com.run.boot.service.BaseService;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @description:
  */
 @Component
-public class TwoServiceImpl extends AbstractBaseService implements BaseService {
+public class TwoServiceImpl extends AbstractBaseService {
 
     @Override
     public String getCommand() {

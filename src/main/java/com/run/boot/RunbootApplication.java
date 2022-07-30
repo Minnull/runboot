@@ -1,7 +1,7 @@
 package com.run.boot;
 
 import com.run.boot.conf.RunCommandConfig;
-import com.run.boot.service.BaseService;
+import com.run.boot.service.AbstractBaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +25,9 @@ public class RunbootApplication implements CommandLineRunner {
     private RunCommandConfig runCommands;
 
     @Autowired
-    private List<BaseService> baseServices;
+    private List<AbstractBaseService> baseServices;
 
-    private Map<String, BaseService> baseServiceMap = new ConcurrentHashMap<>();
+    private Map<String, AbstractBaseService> baseServiceMap = new ConcurrentHashMap<>();
 
     private static final String runCommandExample = "java -jar runboot-0.0.1-SNAPSHOT.jar param1  param2  ...";
 

@@ -7,30 +7,15 @@ package com.run.boot.statics;
  */
 public class GlobalDefaultPaths {
 
-    /**主目录路径*/
-    public static String mainPath = "src/main/java/";
+    /**开发根目录*/
+    public static String devPath = "src/main/java/com/run/boot/service";
 
-    /**主包路径*/
-    public static String mainPackagePath = "src/main/java/com/run/boot/";
+    /**业务代码目录*/
+    public static String businessPath = "src/main/java/com/run/boot/service/impl";
 
-    /**工具类路径*/
-    public static String mainPackageUtilPath = "src/main/java/com/run/boot/util/";
+    /**准备运行时需要的数据目录*/
+    public static String runInputPath = "src/main/java/com/run/boot/service/input";
 
-    /**配置文件路径*/
-    public static String resourcesPath = "src/main/resources/";
-
-    /**runboot.sql文件路径*/
-    public static String sqlPath = "src/main/resources/sql/runboot.sql";
-
-    /**demo主目录路径*/
-    public static String testPath = "src/test/java/";
-
-    /**demo主包路径*/
-    public static String testPackagePath = "src/test/java/com/run/boot/";
-
-    /**demo类相关资源路径*/
-    public static String testPackageHelpPath = "src/test/java/com/run/boot/help/";
-
-    /**demo类路径*/
-    public static String testPackageDemoath = "src/test/java/com/run/boot/util/";
+    /**输出测试结果的目录*/
+    public static String runOutPutPath = "src/main/java/com/run/boot/service/output";
 }

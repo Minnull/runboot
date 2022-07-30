@@ -1,10 +1,11 @@
-package com.run.boot.util.common;
+package com.run.boot.service.impl;
 
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.run.boot.util.common.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ArrayHandler;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
@@ -13,7 +14,6 @@ import org.apache.commons.dbutils.handlers.KeyedHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import org.junit.jupiter.api.Test;
 
 /**
  * @ClassName: JdbcUtilsTest
@@ -22,9 +22,8 @@ import org.junit.jupiter.api.Test;
  * @date: 2019年1月13日
  * 测试前先修改JdbcUtils的数据库连接信息
  */
-public class JdbcUtilsTest {
+public class Jdbc {
 
-    @Test
     public void testArrayHandler() throws SQLException{
         QueryRunner qr = new QueryRunner(JdbcUtils.getDataSource());
         String sql = "select * from util_common_jdbcutils_user";
@@ -32,7 +31,6 @@ public class JdbcUtilsTest {
         System.out.println(Arrays.asList(result));  //list  toString()
     }
 
-    @Test
     public void testArrayListHandler() throws SQLException{
         QueryRunner qr = new QueryRunner(JdbcUtils.getDataSource());
         String sql = "select * from util_common_jdbcutils_user";
@@ -42,7 +40,6 @@ public class JdbcUtilsTest {
         }
     }
 
-    @Test
     public void testColumnListHandler() throws SQLException{
         QueryRunner qr = new QueryRunner(JdbcUtils.getDataSource());
         String sql = "select * from util_common_jdbcutils_user";
@@ -50,7 +47,6 @@ public class JdbcUtilsTest {
         System.out.println(list);
     }
 
-    @Test
     public void testKeyedHandler() throws Exception{
         QueryRunner qr = new QueryRunner(JdbcUtils.getDataSource());
         String sql = "select * from util_common_jdbcutils_user";
@@ -68,7 +64,6 @@ public class JdbcUtilsTest {
         }
     }
 
-    @Test
     public void testMapHandler() throws SQLException{
 
         QueryRunner qr = new QueryRunner(JdbcUtils.getDataSource());
@@ -81,8 +76,6 @@ public class JdbcUtilsTest {
         }
     }
 
-
-    @Test
     public void testMapListHandler() throws SQLException{
         QueryRunner qr = new QueryRunner(JdbcUtils.getDataSource());
         String sql = "select * from util_common_jdbcutils_user";
@@ -95,7 +88,6 @@ public class JdbcUtilsTest {
         }
     }
 
-    @Test
     public void testScalarHandler() throws SQLException{
         QueryRunner qr = new QueryRunner(JdbcUtils.getDataSource());
         String sql = "select count(*) from util_common_jdbcutils_user";  //[13]  list[13]
@@ -103,7 +95,6 @@ public class JdbcUtilsTest {
         System.out.println(count);
     }
 
-    @Test
     public void testinsert() throws SQLException{
         int count = 0;
         String sql = "insert into util_common_jdbcutils_user (name) values (?)";  //

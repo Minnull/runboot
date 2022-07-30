@@ -1,4 +1,4 @@
-package com.run.boot.util.common;
+package com.run.boot.service.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,7 +32,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.junit.jupiter.api.Test;
+
 /**
  *
  * 功能描述:
@@ -44,9 +44,8 @@ import org.junit.jupiter.api.Test;
  * @description:
  */
 //todo demo需要修改
-public class HttpClientTest {
+public class HttpClient {
 
-    @Test
     public void jUnitTest() {
         get();
     }
