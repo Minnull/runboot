@@ -1,7 +1,9 @@
 package com.run.boot;
 
 import com.run.boot.conf.RunCommandConfig;
+import com.run.boot.plugins.PluginsInterceptorChain;
 import com.run.boot.service.AbstractBaseService;
+import com.run.boot.service.IBaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +27,9 @@ public class RunbootApplication implements CommandLineRunner {
     private RunCommandConfig runCommands;
 
     @Autowired
-    private List<AbstractBaseService> baseServices;
+    private List<IBaseService> baseServices;
 
-    private Map<String, AbstractBaseService> baseServiceMap = new ConcurrentHashMap<>();
+    private Map<String, IBaseService> baseServiceMap = new ConcurrentHashMap<>();
 
     private static final String runCommandExample = "java -jar runboot-0.0.1-SNAPSHOT.jar param1  param2  ...";
 
@@ -46,7 +48,7 @@ public class RunbootApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (args.length == 0) {
-            LOG.warn("No startup command is entered,program exited.");
+            LOG.warn("No startup command is entered,program exited.Command example:" + runCommandExample);
             return;
         }
         Map<String, List<String>> commands = runCommands.getCommands();
@@ -58,13 +60,16 @@ public class RunbootApplication implements CommandLineRunner {
         for (int i = 0; i < args.length; i++) {
             List<String> innerCommands = commands.get(args[i]);
             LOG.info("Start executing group {} commands,command={},task list={}", i, args[i], innerCommands);
-            if (innerCommands.size() == 0) {
+            if (null == innerCommands || innerCommands.size() == 0) {
                 LOG.warn("This command does not create a task,skip command={}.", args[i]);
                 continue;
             }
             for (String innerCommand : innerCommands) {
                 LOG.debug("Start task {}", innerCommand);
-                baseServiceMap.get(innerCommand).run();
+                IBaseService baseService = baseServiceMap.get(innerCommand);
+                PluginsInterceptorChain pluginsInterceptorChain = new PluginsInterceptorChain();
+                IBaseService pluginsInvocationHandler = (IBaseService) pluginsInterceptorChain.addPlugins(baseService.configPlugins()).initAllPlugins(baseService);
+                pluginsInvocationHandler.run();
                 LOG.debug("End task {}", innerCommand);
             }
         }

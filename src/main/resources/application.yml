@@ -6,6 +6,7 @@ logging:
 runboot:
  commands:
   all:
+   - three
    - run
    - two
   first:

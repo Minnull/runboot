@@ -1,15 +1,24 @@
 package com.run.boot.service.impl;
 
+import com.run.boot.plugins.PluginsInterceptor;
 import com.run.boot.service.AbstractBaseService;
-import org.springframework.stereotype.Component;
+import com.run.boot.service.IBaseService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author : null
  * @date : 2018/10/17
  * @description:
  */
-@Component
-public class RunServiceImpl extends AbstractBaseService {
+@Service
+public class RunServiceImpl extends AbstractBaseService implements IBaseService {
+
+    @Override
+    public List<PluginsInterceptor> configPlugins() {
+        return null;
+    }
 
     @Override
     public String getCommand() {
